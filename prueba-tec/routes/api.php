@@ -14,4 +14,6 @@ Route::prefix('states')->name('api.states.')->group(function () {
 
     Route::post('deduplicate', [StateApiController::class, 'deduplicate'])
         ->name('deduplicate');
+    Route::post('clear', [StateApiController::class, 'clear'])->name('clear');
+
 });

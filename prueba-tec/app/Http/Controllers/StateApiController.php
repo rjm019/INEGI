@@ -281,4 +281,26 @@ class StateApiController extends Controller
             'total_final' => $totalFinal,
         ], 200);
     }
+
+    /**
+ * @OA\Post(
+ *   path="/api/states/clear",
+ *   tags={"Estados"},
+ *   summary="Vaciar tabla de estados",
+ *   description="Trunca la tabla inegi_states (resetea AUTO_INCREMENT).",
+ *   @OA\Response(response=200, description="OK")
+ * )
+ */
+    public function clear()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::table('inegi_states')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+        return response()->json([
+            'ok' => true,
+            'mensaje' => 'Tabla inegi_states vaciada'
+        ], 200);
+    }
+
 }

@@ -23,12 +23,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
-         $url = config('app.url');
-        if ($url) {
-            URL::forceRootUrl($url);
-            if (str_starts_with($url, 'https://')) {
-                URL::forceScheme('https');
+        if (app()->environment('production')) {
+            $url = config('app.url');
+            if ($url) {
+                URL::forceRootUrl($url);
             }
+            URL::forceScheme('https');
         }
     }
 }
