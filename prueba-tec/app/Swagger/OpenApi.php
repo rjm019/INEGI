@@ -6,14 +6,18 @@ use OpenApi\Annotations as OA;
 
 /**
  * @OA\OpenApi(
+ *   @OA\Server(
+ *     url=L5_SWAGGER_CONST_HOST,
+ *     description="Railway"
+ *   ),
+ *   @OA\Server(
+ *     url="http://localhost:8000",
+ *     description="Local"
+ *   ),
  *   @OA\Info(
  *     title="API Estados INEGI",
  *     version="1.0.0",
  *     description="API para sincronizar y consultar estados del INEGI (demo técnica)."
- *   ),
- *   @OA\Server(
- *     url=L5_SWAGGER_CONST_HOST,
- *     description="Servidor base (APP_URL)"
  *   )
  * )
  */
@@ -94,6 +98,4 @@ use OpenApi\Annotations as OA;
  *   @OA\Property(property="total_final", type="integer", example=32)
  * )
  */
-class OpenApi
-{
-}
+class OpenApi {}
