@@ -5,17 +5,20 @@ namespace App\Swagger;
 use OpenApi\Annotations as OA;
 
 /**
- * @OA\Info(
- *   title="API Estados INEGI",
- *   version="1.0.0",
- *   description="API para sincronizar y consultar estados del INEGI (demo técnica)."
+ * @OA\OpenApi(
+ *   @OA\Info(
+ *     title="API Estados INEGI",
+ *     version="1.0.0",
+ *     description="API para sincronizar y consultar estados del INEGI (demo técnica)."
+ *   ),
+ *   @OA\Server(
+ *     url=L5_SWAGGER_CONST_HOST,
+ *     description="Servidor base (APP_URL)"
+ *   )
  * )
- *
- * @OA\Server(
- *   url=L5_SWAGGER_CONST_HOST,
- *   description="Servidor base (APP_URL)"
- * )
- *
+ */
+
+/**
  * @OA\Tag(
  *   name="Estados",
  *   description="Consulta y sincronización de estados"
@@ -61,7 +64,7 @@ use OpenApi\Annotations as OA;
  *     @OA\Property(property="nomgeo", type="string", example="Nuevo León"),
  *     @OA\Property(property="nom_abrev", type="string", example="NL"),
  *     @OA\Property(property="pob_total", type="integer", example=5784442),
- *     @OA\Property(property="acciones", type="string", example="http://localhost:8000/api/states/19")
+ *     @OA\Property(property="acciones", type="string", example="/api/states/19")
  *   )),
  *   @OA\Property(property="meta", ref="#/components/schemas/MetaListado")
  * )
@@ -93,5 +96,4 @@ use OpenApi\Annotations as OA;
  */
 class OpenApi
 {
-    // Clase contenedora sin lógica. Las anotaciones viven en este docblock.
 }
